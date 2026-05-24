@@ -1,79 +1,115 @@
 "use client";
 
 import { Navbar } from "@/components/Navbar";
-import { BetsTable } from "@/components/BetsTable";
+import { RoomsPanel } from "@/components/RoomsPanel";
 import { Leaderboard } from "@/components/Leaderboard";
+import { Award, Gamepad2, Settings, Share2, Store, Trophy } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
+    <div className="game-page min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Main Content - Padding to account for fixed navbar */}
-      <main className="flex-grow pt-20 pb-12 px-4 md:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-8 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Football Prediction Betting
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              AI-powered football match predictions on GenLayer blockchain.
-              <br />
-              Create bets, make predictions, and compete for points.
-            </p>
-          </div>
+      <main className="flex-grow">
+        <section className="game-menu-scene">
+          <div className="painted-sky" />
+          <div className="sky-ribbon sky-ribbon-one" />
+          <div className="sky-ribbon sky-ribbon-two" />
+          <div className="floating-rock rock-one" />
+          <div className="floating-rock rock-two" />
+          <div className="floating-rock rock-three" />
+          <div className="cliff-stack cliff-left" />
+          <div className="cliff-stack cliff-right" />
 
-          {/* Main Grid Layout - 2/1 columns on desktop, stacked on mobile */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            {/* Left Column - Bets Table (67% on desktop) */}
-            <div className="lg:col-span-8 animate-slide-up">
-              <BetsTable />
+          <div className="game-menu-inner">
+            <div className="stone-logo" aria-label="Giga Brain">
+              <span>Giga</span>
+              <span>Brain</span>
             </div>
 
-            {/* Right Column - Leaderboard (33% on desktop) */}
-            <div className="lg:col-span-4 animate-slide-up" style={{ animationDelay: "100ms" }}>
-              <Leaderboard />
+            <div className="menu-buttons" aria-label="Main menu">
+              <a className="plank-button plank-light" href="#arena">
+                Play
+              </a>
+              <a className="plank-button plank-red" href="#leaderboard">
+                Survival
+              </a>
+              <a className="plank-button plank-yellow" href="#arena">
+                Store
+              </a>
+              <a
+                className="plank-button plank-stone"
+                href="https://genlayer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Other Games
+              </a>
             </div>
-          </div>
 
-          {/* Info Section */}
-          <div className="mt-8 glass-card p-6 md:p-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
-            <h2 className="text-2xl font-bold mb-4">How it Works</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <div className="text-accent font-bold text-lg">1. Create a Bet</div>
-                <p className="text-sm text-muted-foreground">
-                  Connect your wallet and create a football match prediction. Choose the teams, date, and your predicted winner.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-accent font-bold text-lg">2. Wait for Resolution</div>
-                <p className="text-sm text-muted-foreground">
-                  After the match, the bet creator resolves the bet. GenLayer's AI verifies the actual match result.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-accent font-bold text-lg">3. Earn Points</div>
-                <p className="text-sm text-muted-foreground">
-                  Correct predictions earn you points. Climb the leaderboard and prove your football knowledge!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-2">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+            <div className="menu-icon-row" aria-label="Quick actions">
+              <a href="#arena" className="menu-icon-tile tile-cream" title="Rooms">
+                <Gamepad2 />
+              </a>
+              <a href="#leaderboard" className="menu-icon-tile tile-gold" title="Leaderboard">
+                <Trophy />
+              </a>
+              <a href="#leaderboard" className="menu-icon-tile tile-mint" title="Ranks">
+                <Award />
+              </a>
+              <a href="#settings" className="menu-icon-tile tile-slate" title="Settings">
+                <Settings />
+              </a>
               <a
                 href="https://genlayer.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="menu-icon-tile tile-moss"
+                title="Share"
+              >
+                <Share2 />
+              </a>
+              <a
+                href="https://studio.genlayer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="menu-icon-tile tile-lime"
+                title="Store"
+              >
+                <Store />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="arena" className="game-content px-4 md:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="section-title-card">
+              <h1>Arena Rooms</h1>
+              <p>Weekly debate chambers, AI verdicts, XP spoils.</p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+              <div className="lg:col-span-8 animate-slide-up">
+                <RoomsPanel />
+              </div>
+
+              <div id="leaderboard" className="lg:col-span-4 animate-slide-up" style={{ animationDelay: "100ms" }}>
+                <Leaderboard />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="game-footer py-5">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+              <a
+                href="https://genlayer.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#5b341e] transition-colors"
               >
                 Powered by GenLayer
               </a>
@@ -81,7 +117,7 @@ export default function HomePage() {
                 href="https://studio.genlayer.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-[#5b341e] transition-colors"
               >
                 Studio
               </a>
@@ -89,7 +125,7 @@ export default function HomePage() {
                 href="https://docs.genlayer.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-[#5b341e] transition-colors"
               >
                 Docs
               </a>
@@ -97,7 +133,7 @@ export default function HomePage() {
                 href="https://github.com/genlayerlabs/genlayer-project-boilerplate"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-[#5b341e] transition-colors"
               >
                 GitHub
               </a>

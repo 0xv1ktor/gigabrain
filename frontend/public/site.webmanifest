@@ -1,7 +1,7 @@
 {
-  "name": "GenLayer Football Market",
-  "short_name": "GenLayer Market",
-  "description": "AI-powered football match predictions on GenLayer blockchain",
+  "name": "Giga Brain",
+  "short_name": "Giga Brain",
+  "description": "AI judged debate arena powered by GenLayer",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

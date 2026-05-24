@@ -1,18 +1,23 @@
 /**
- * TypeScript types for GenLayer Football Betting contract
+ * TypeScript types for the Giga Brain debate contract.
  */
 
-export interface Bet {
+export interface DebateRoom {
   id: string;
-  game_date: string;
-  team1: string;
-  team2: string;
-  predicted_winner: string;
-  has_resolved: boolean;
-  real_winner?: string;
-  real_score?: string;
-  resolution_url?: string;
-  owner: string;
+  topic: string;
+  criteria: string;
+  season: string;
+  duration_minutes: number;
+  status: "open" | "arguing" | "ready" | "judged";
+  player_one: string;
+  player_two: string;
+  player_one_argument: string;
+  player_two_argument: string;
+  winner_slot: "player_one" | "player_two" | "";
+  winning_player: string;
+  player_one_score: number;
+  player_two_score: number;
+  verdict: string;
 }
 
 export interface LeaderboardEntry {
@@ -25,9 +30,4 @@ export interface TransactionReceipt {
   hash: string;
   blockNumber?: number;
   [key: string]: any;
-}
-
-export interface BetFilters {
-  resolved?: boolean;
-  owner?: string;
 }

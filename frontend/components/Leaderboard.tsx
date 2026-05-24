@@ -1,12 +1,12 @@
 "use client";
 
 import { Trophy, Medal, Award, Loader2, AlertCircle } from "lucide-react";
-import { useLeaderboard, useFootballBetsContract } from "@/lib/hooks/useFootballBets";
+import { useGigaBrainContract, useLeaderboard } from "@/lib/hooks/useGigaBrain";
 import { useWallet } from "@/lib/genlayer/wallet";
 import { AddressDisplay } from "./AddressDisplay";
 
 export function Leaderboard() {
-  const contract = useFootballBetsContract();
+  const contract = useGigaBrainContract();
   const { data: leaderboard, isLoading, isError } = useLeaderboard();
   const { address } = useWallet();
 
@@ -132,7 +132,7 @@ export function Leaderboard() {
                   <span className="text-lg font-bold text-accent">
                     {entry.points}
                   </span>
-                  <span className="text-xs text-muted-foreground">pts</span>
+                  <span className="text-xs text-muted-foreground">XP</span>
                 </div>
               </div>
             </div>
